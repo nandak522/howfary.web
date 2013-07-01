@@ -5,9 +5,9 @@
     <tal:block metal:fill-slot="title">Distance Calculator</tal:block>
     <tal:block metal:fill-slot="body">
         <form action='/' method='POST'>
-            <label for='source'>Source</label>:<input id='source' name='source' type='text' value='${source}'/><br/>
+            <label for='source'>Source</label><input id='source' name='source' type='text' value='${source}'/><br/>
             <label for='destination'>Destination</label><input id='destination' name='destination' type='text' value='${destination}'/><br/>
-            <button>How Far ?</button>
+            <button class="btn btn-primary">How Far ?</button>
         </form>
         <br/>
         <tal:block tal:condition="exists:result">
@@ -19,8 +19,13 @@
         <br/>
         <tal:block tal:condition="exists:all_journies">
         <div id='all_journies'>
-            <table>
-                <th><td>Source</td><td>Destination</td><td>Distance</td><td>Duration</td></th>
+            <table class='table table-striped'>
+                <thead>
+                    <tr>
+                        <th>Source</th><th>Destination</th><th>Distance</th><th>Duration</th>
+                    </tr>
+                </thead>
+
                 <tal-in tal:repeat="journey all_journies">
                     <tr>
                         <td>${journey.source}</td><td>${journey.destination}</td><td>${journey.distance}</td><td>${journey.duration}</td>

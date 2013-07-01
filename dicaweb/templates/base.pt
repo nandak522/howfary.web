@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head>
     <title>
@@ -7,25 +7,37 @@
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
   <meta name="keywords" content="distance calculator howfar" />
   <meta name="description" content="Simple webservice which fetches the distance between two places." />
-  <link rel="shortcut icon" href="${request.static_url('dicaweb:static/favicon.ico')}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="${request.static_url('dicaweb:static/bootstrap/css/bootstrap.css')}" media="screen" />
   <link rel="stylesheet" href="${request.static_url('dicaweb:static/master.css')}" media="screen" />
-  <link rel="stylesheet" href="http://static.pylonsproject.org/fonts/nobile/stylesheet.css" media="screen" />
-  <link rel="stylesheet" href="http://static.pylonsproject.org/fonts/neuton/stylesheet.css" media="screen" />
   <!--[if lte IE 6]>
   <link rel="stylesheet" href="${request.static_url('dicaweb:static/ie6.css')}" type="text/css" media="screen" charset="utf-8" />
   <![endif]-->
 </head>
 <body>
-    <div id='header'>
-        <h1>
-            Distance Calculator
-        </h1>
+    <header>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href="/">Distance Calculator</a>
+          </div>
+        </div>
+    </header>
+    <div class='container'>
+      <div class='row'>
+        <div class='span12'>
+            <tal:block metal:define-slot="body"></tal:block>
+        </div>
+      </div>
     </div>
-    <div id='main_content'>
-        <tal:block metal:define-slot="body"></tal:block>
-    </div>
-    <div id='footer'>
-        &copy;2013
-    </div>
+    <footer>
+        <div class='footer'>
+            <div class='container'>
+              <div class='row'>
+                <div class='span12'>
+                    Dica &copy;2013
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
