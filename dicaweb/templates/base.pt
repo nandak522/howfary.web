@@ -8,6 +8,7 @@
   <meta name="keywords" content="distance calculator howfar" />
   <meta name="description" content="Simple webservice which fetches the distance between two places." />
   <link rel="shortcut icon" href="${request.static_url('dicaweb:static/favicon.ico')}" />
+  <link rel="stylesheet" href="${request.static_url('dicaweb:static/master.css')}" media="screen" />
   <link rel="stylesheet" href="http://static.pylonsproject.org/fonts/nobile/stylesheet.css" media="screen" />
   <link rel="stylesheet" href="http://static.pylonsproject.org/fonts/neuton/stylesheet.css" media="screen" />
   <!--[if lte IE 6]>
@@ -16,13 +17,15 @@
 </head>
 <body>
     <div id='header'>
-        <tal:block metal:define-slot="header"></tal:block>
+        <h1>
+            Distance Calculator
+        </h1>
     </div>
     <div id='main_content'>
         <tal:block metal:define-slot="body"></tal:block>
     </div>
     <div id='footer'>
-        <tal:block metal:define-slot="footer"></tal:block>
+        &copy;2013
     </div>
 </body>
 </html>

@@ -1,0 +1,4 @@
+* {font-family: Arial;}
+#header{border-bottom: 0.1em solid #000;margin-bottom:1em;text-align: center;}
+#main_content{padding-left: 2em;}
+#footer{border-top: 0.1em solid #000;text-align: center;}

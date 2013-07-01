@@ -5,16 +5,18 @@
     <tal:block metal:fill-slot="title">Distance Calculator</tal:block>
     <tal:block metal:fill-slot="body">
         <form action='/' method='POST'>
-            <label for='source'>Source</label><input id='source' name='source' type='text' value='${source}'/>
-            <label for='destination'>Destination</label><input id='destination' name='destination' type='text' value='${destination}'/>
+            <label for='source'>Source</label>:<input id='source' name='source' type='text' value='${source}'/><br/>
+            <label for='destination'>Destination</label><input id='destination' name='destination' type='text' value='${destination}'/><br/>
             <button>How Far ?</button>
         </form>
+        <br/>
         <tal:block tal:condition="exists:result">
         <div id='result'>
             Distance : ${result.distance}<br/>
             Duration : ${result.duration}<br/>
         </div>
         </tal:block>
+        <br/>
         <tal:block tal:condition="exists:all_journies">
         <div id='all_journies'>
             <table>
