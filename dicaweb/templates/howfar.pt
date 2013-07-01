@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="base">
+    <tal:block metal:fill-slot="title">Distance Calculator</tal:block>
+    <tal:block metal:fill-slot="body">
+        <form action='/howfar' method='POST'>
+            <label for='source'>Source</label><input id='source' name='source' type='text' value='${source}'/>
+            <label for='destination'>Destination</label><input id='destination' name='destination' type='text' value='${destination}'/>
+            <button>How Far ?</button>
+        </form>
+        <div id='results'>
+            Distance : ${distance}<br/>
+            Duration : ${duration}<br/>
+        </div>
+    </tal:block>
+</html>

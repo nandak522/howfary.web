@@ -1,5 +1,7 @@
 from pyramid.response import Response
 from pyramid.view import view_config
+from pyramid.renderers import get_renderer
+from pyramid.httpexceptions import HTTPNotFound
 
 from sqlalchemy.exc import DBAPIError
 
@@ -7,6 +9,7 @@ from .models import (
     DBSession,
     MyModel,
     )
+from dica.core.query import compute_howfar
 
 
 @view_config(route_name='home', renderer='templates/mytemplate.pt')
@@ -33,3 +36,19 @@ After you fix the problem, please restart the Pyramid application to
 try it again.
 """
 
+@view_config(route_name='howfar', renderer='templates/howfar.pt')
+def howfar(request):
+    if request.method == 'GET':
+        return {'source': '', 'destination': '', 'distance':'', 'duration': ''}
+    elif request.method == 'POST':
+        source = request.params['source']
+        destination = request.params['destination']
+        howfar = compute_howfar(source=source,
+                                destination=destination)
+        assert howfar['status'] == 'OK'
+        return {'source': source,
+                'destination': destination,
+                'distance': howfar['distance']['text'],
+                'duration': howfar['duration']['text'],
+                }
+    return HTTPNotFound()
