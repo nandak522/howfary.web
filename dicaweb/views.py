@@ -2,54 +2,47 @@ from pyramid.response import Response
 from pyramid.view import view_config
 from pyramid.renderers import get_renderer
 from pyramid.httpexceptions import HTTPNotFound
+import transaction
 
 from sqlalchemy.exc import DBAPIError
 
 from .models import (
     DBSession,
-    MyModel,
+    Journey,
     )
 from dica.core.query import compute_howfar
 
 
-@view_config(route_name='home', renderer='templates/mytemplate.pt')
-def my_view(request):
-    try:
-        one = DBSession.query(MyModel).filter(MyModel.name == 'one').first()
-    except DBAPIError:
-        return Response(conn_err_msg, content_type='text/plain', status_int=500)
-    return {'one': one, 'project': 'dica.web'}
-
-conn_err_msg = """\
-Pyramid is having a problem using your SQL database.  The problem
-might be caused by one of the following things:
-
-1.  You may need to run the "initialize_dica.web_db" script
-    to initialize your database tables.  Check your virtual 
-    environment's "bin" directory for this script and try to run it.
-
-2.  Your database server may not be running.  Check that the
-    database server referred to by the "sqlalchemy.url" setting in
-    your "development.ini" file is running.
-
-After you fix the problem, please restart the Pyramid application to
-try it again.
-"""
-
-@view_config(route_name='howfar', renderer='templates/howfar.pt')
+@view_config(route_name='home', renderer='templates/howfar.pt')
 def howfar(request):
     if request.method == 'GET':
-        return {'source': '', 'destination': '', 'distance':'', 'duration': ''}
+        return {'source': '', 'destination': '', 'distance':'', 'duration': '',
+                'all_journies': DBSession.query(Journey).all()}
     elif request.method == 'POST':
-        source = request.params['source']
-        destination = request.params['destination']
-        howfar = compute_howfar(source=source,
-                                destination=destination)
-        assert howfar['status'] == 'OK'
+        source = request.params['source'].strip().lower()
+        destination = request.params['destination'].strip().lower()
+        results = DBSession.query(Journey).filter(Journey.source==source,
+                                                  Journey.destination==destination)
+        if results.count():
+            result = results.one()
+            distance = result.distance
+            duration = result.duration
+        else:
+            howfar = compute_howfar(source=source,
+                                    destination=destination)
+            assert howfar['status'] == 'OK'
+            distance = howfar['distance']['text']
+            duration = howfar['duration']['text']
+            with transaction.manager:
+                journey = Journey(source=source,
+                                  destination=destination,
+                                  distance=distance,
+                                  duration=duration)
+                DBSession.add(journey)
         return {'source': source,
                 'destination': destination,
-                'result': {'distance': howfar['distance']['text'],
-                           'duration': howfar['duration']['text'],
+                'result': {'distance': distance,
+                           'duration': duration,
                            }
                 }
     return HTTPNotFound()

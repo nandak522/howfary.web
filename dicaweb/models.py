@@ -1,10 +1,12 @@
 from sqlalchemy import (
     Column,
     Integer,
-    Text,
+    String,
     )
 
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.schema import MetaData
+from sqlalchemy.ext.hybrid import hybrid_property
 
 from sqlalchemy.orm import (
     scoped_session,
@@ -14,15 +16,17 @@ from sqlalchemy.orm import (
 from zope.sqlalchemy import ZopeTransactionExtension
 
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
-Base = declarative_base()
+Base = declarative_base(metadata=MetaData())
 
 
-class MyModel(Base):
-    __tablename__ = 'models'
+class Journey(Base):
+    __tablename__ = 'journey'
     id = Column(Integer, primary_key=True)
-    name = Column(Text, unique=True)
-    value = Column(Integer)
+    source = Column(String)
+    destination = Column(String)
+    distance = Column(String)
+    duration = Column(String)
 
-    def __init__(self, name, value):
-        self.name = name
-        self.value = value
+    @hybrid_property
+    def howfar(self):
+        return dict(distance=self.distance, duration=self.duration)

@@ -4,7 +4,7 @@
       metal:use-macro="base">
     <tal:block metal:fill-slot="title">Distance Calculator</tal:block>
     <tal:block metal:fill-slot="body">
-        <form action='/howfar' method='POST'>
+        <form action='/' method='POST'>
             <label for='source'>Source</label><input id='source' name='source' type='text' value='${source}'/>
             <label for='destination'>Destination</label><input id='destination' name='destination' type='text' value='${destination}'/>
             <button>How Far ?</button>
@@ -13,6 +13,18 @@
         <div id='result'>
             Distance : ${result.distance}<br/>
             Duration : ${result.duration}<br/>
+        </div>
+        </tal:block>
+        <tal:block tal:condition="exists:all_journies">
+        <div id='all_journies'>
+            <table>
+                <th><td>Source</td><td>Destination</td><td>Distance</td><td>Duration</td></th>
+                <tal-in tal:repeat="journey all_journies">
+                    <tr>
+                        <td>${journey.source}</td><td>${journey.destination}</td><td>${journey.distance}</td><td>${journey.duration}</td>
+                    </tr>
+                </tal-in>
+            </table>
         </div>
         </tal:block>
     </tal:block>
