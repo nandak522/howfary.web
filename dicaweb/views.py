@@ -48,7 +48,8 @@ def howfar(request):
         assert howfar['status'] == 'OK'
         return {'source': source,
                 'destination': destination,
-                'distance': howfar['distance']['text'],
-                'duration': howfar['duration']['text'],
+                'result': {'distance': howfar['distance']['text'],
+                           'duration': howfar['duration']['text'],
+                           }
                 }
     return HTTPNotFound()

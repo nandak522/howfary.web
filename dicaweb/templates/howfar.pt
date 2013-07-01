@@ -9,9 +9,11 @@
             <label for='destination'>Destination</label><input id='destination' name='destination' type='text' value='${destination}'/>
             <button>How Far ?</button>
         </form>
-        <div id='results'>
-            Distance : ${distance}<br/>
-            Duration : ${duration}<br/>
+        <tal:block tal:condition="exists:result">
+        <div id='result'>
+            Distance : ${result.distance}<br/>
+            Duration : ${result.duration}<br/>
         </div>
+        </tal:block>
     </tal:block>
 </html>
