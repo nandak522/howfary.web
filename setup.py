@@ -16,9 +16,9 @@ requires = [
     'waitress',
     ]
 
-setup(name='dica.web',
+setup(name='howfary.web',
       version='0.1.0',
-      description='dica.web',
+      description='howfary.web',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Programming Language :: Python",
@@ -33,12 +33,12 @@ setup(name='dica.web',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      test_suite='dicaweb',
+      test_suite='howfaryweb',
       install_requires=requires,
       entry_points="""\
       [paste.app_factory]
-      main = dicaweb:main
+      main = howfaryweb:main
       [console_scripts]
-      initialize_dica.web_db = dicaweb.scripts.initializedb:main
+      initialize_howfary.web_db = howfaryweb.scripts.initializedb:main
       """,
       )
