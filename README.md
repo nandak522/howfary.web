@@ -1,16 +1,16 @@
-dica.web
+howfary.web
 ========
 
-Pyramid based Web-Frontend for DistanceCalculator
+Pyramid based Web-Frontend for Howfary
 
 
 Getting Started
 ---------------
 
-- cd <directory containing this file>
+- cd $PROJECT\_HOME
 
 - $venv/bin/python setup.py develop
 
-- $venv/bin/initialize_dica.web_db development.ini
+- $venv/bin/initialize_howfary.web_db development.ini
 
 - $venv/bin/pserve development.ini
