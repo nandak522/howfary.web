@@ -14,6 +14,7 @@ requires = [
     'pyramid_debugtoolbar',
     'zope.sqlalchemy',
     'waitress',
+    'howfary.core',
     ]
 
 setup(name='howfary.web',
