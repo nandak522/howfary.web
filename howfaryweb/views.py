@@ -10,7 +10,7 @@ from .models import (
     DBSession,
     Journey,
     )
-from dica.core.query import compute_howfar
+from howfary.core.query import compute_howfar
 
 
 @view_config(route_name='home', renderer='templates/howfar.pt')
