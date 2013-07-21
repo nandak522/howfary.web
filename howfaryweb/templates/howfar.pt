@@ -1,15 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:ng="http://angularjs.org" ng-app
       metal:use-macro="base">
     <tal:block metal:fill-slot="title">Distance Calculator</tal:block>
     <tal:block metal:fill-slot="body">
-        <form action='/' method='POST'>
-            <label for='source'>Source</label><input id='source' name='source' type='text' value='${source}'/><br/>
-            <label for='destination'>Destination</label><input id='destination' name='destination' type='text' value='${destination}'/><br/>
-            <button class="btn btn-primary">How Far ?</button>
+        <form novalidate ng-controller="formCtrl">
+            <label for='source'>Source</label><input id='source' name='source' type='text' value='${source}' ng-model='src' required/><br/><br/>
+            <label for='destination'>Destination</label><input id='destination' name='destination' type='text' value='${destination}' ng-model='dest' required/><br/>
+            <button id="submit" class="btn btn-primary" ng-click="howFar">How Far ?</button>
         </form>
         <br/>
+        Distance : {{ distance }}
         <tal:block tal:condition="exists:result">
         <div id='result'>
             Distance : ${result.distance}<br/>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:ng="http://angularjs.org" ng-app>
 <head>
     <title>
         <tal:block metal:define-slot="title"></tal:block>
@@ -34,10 +34,13 @@
             <div class='container'>
               <div class='row'>
                 <div class='span12'>
-                    Howfary &copy;2013
+                    Howfary &copy; 2013<br/><br/>
+                    Built with <a href='http://www.pylonsproject.org/'>Pyramid</a> &amp; <a href='http://twitter.github.io/bootstrap/'>Bootstrap</a> &amp; <a href='http://angularjs.org/'>AngularJS</a>
                 </div>
             </div>
         </div>
     </footer>
+  <script type='text/javascript' src="${request.static_url('howfaryweb:static/angularjs/angular.min.js')}"></script>
+  <script type='text/javascript' src="${request.static_url('howfaryweb:static/app.js')}"></script>
 </body>
 </html>
