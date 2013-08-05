@@ -15,6 +15,24 @@
                 <span ng-model='journey.duration'>{{journey.duration}}</span>
                 <span ng-model='journey.distance'>{{journey.distance}}</span>
             </form>
+            <br/>
+            <tal:block tal:condition="exists:all_journies">
+            <div id='all_journies'>
+                <table class='table table-striped'>
+                    <thead>
+                        <tr>
+                            <th>Source</th><th>Destination</th><th>Distance</th><th>Duration</th>
+                        </tr>
+                    </thead>
+
+                    <tal-in tal:repeat="journey all_journies">
+                        <tr>
+                            <td>${journey.source}</td><td>${journey.destination}</td><td>${journey.distance}</td><td>${journey.duration}</td>
+                        </tr>
+                    </tal-in>
+                </table>
+            </div>
+            </tal:block>
         </div>
     </tal:block>
 </html>
