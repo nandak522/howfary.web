@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="base"
+      xmlns:ng='http://angularjs.org'>
+    <tal:block metal:fill-slot="title">How Far Am I</tal:block>
+    <tal:block metal:fill-slot="body">
+        <div ng-controller="formController">
+            <form name='howfaryForm'>
+                <label for='source'>Source</label>
+                <input name='source' type='text' value='' ng-model='journey.source' autocomplete='off' required/><br/><br/>
+                <label for='destination'>Destination</label>
+                <input name='destination' type='text' ng-model='journey.destination' autocomplete='off' required/><br/><br/>
+                <button type='submit' class="btn btn-primary" ng-disabled='howfaryForm.$invalid' ng-click='howfar(journey)'>How Far ?</button>
+                <span ng-model='journey.duration'>{{journey.duration}}</span>
+                <span ng-model='journey.distance'>{{journey.distance}}</span>
+            </form>
+        </div>
+    </tal:block>
+</html>

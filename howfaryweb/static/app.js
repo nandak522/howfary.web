@@ -1,12 +1,14 @@
-function formCtrl($scope){
 
-    $scope.howFar = function($http){
-        $scope.alert('Hey');
-        $http({method: 'POST', url: '/', data: {'source': $scope.src, 'destination': $scope.dest}
-        }).success(function(data, status, headers, config){
-            alert('success data:' + data);
-        }).error(function(data, status, headers, config){
-            alert('error data:'+ data);
-        });
+function formController($scope, $http){
+    $scope.howfar = function(journey) {
+        console.log('clicked scope:'+journey.source);
+        $http.post('/howfar/', {'source': $scope.journey.source, 'destination': $scope.journey.destination})
+            .success(function(data, status) {
+                $scope.journey.duration = data.result.duration;
+                $scope.journey.distance = data.result.distance;
+            }).error(function(data, status) {
+                console.log('Something Went Wrong');
+                console.log('error status:'+status);
+            });
     };
 }
