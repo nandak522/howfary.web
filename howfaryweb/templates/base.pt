@@ -16,11 +16,17 @@
 </head>
 <body>
     <header>
-        <div class="navbar">
-          <div class="navbar-inner">
-            <a class="brand" href="/">Howfary</a>
+    <div class='container'>
+      <div class='row'>
+        <div class='span12'>
+          <div class="navbar">
+            <div class="navbar-inner">
+              <a class="brand" href="/">Howfary</a>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
     </header>
     <div class='container'>
       <div class='row'>

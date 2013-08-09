@@ -14,8 +14,10 @@
         </form>
         <tal:block tal:condition="exists:result">
         <div id='result' ng-model='result'>
+            <h1>
             Distance : ${result.distance}<br/>
             Duration : ${result.duration}<br/>
+            </h1>
         </div>
         </tal:block>
         <br/>
