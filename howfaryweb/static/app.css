@@ -1,0 +1,4 @@
+* {font-family: Arial;}
+.footer{text-align: center; background: #EFEFEF; border-top: 1px solid #E1E1E1; padding: 10px;}
+input[type=text]{font-size:1.5em;height:1.2em;width:6em;color:#666;}
+.form_header{font-family: Helvetica, 'PT Sans Caption', 'Gentium Book Basic', 'Noto Serif', serif;font-size: 2.1em; }

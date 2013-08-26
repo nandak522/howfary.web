@@ -7,18 +7,20 @@
     <tal:block metal:fill-slot="body">
         <div ng-controller="formController">
             <form name='howfaryForm'>
-                <h2>How Far is
-                <input name='source' type='text' value='' ng-model='journey.source' autocomplete='off' required/>&nbsp;From
+                <span class='form_header'>How far is
+                <input name='source' type='text' value='' id='source' ng-model='journey.source' autocomplete='off' required/>&nbsp;from
                 <input name='destination' class='strong' type='text' ng-model='journey.destination' autocomplete='off' required/>&nbsp;?
-            </h2>
+            </span>
+                <br/>
                 <br/>
                 <!-- TODO: icon-search not working because images cant be loaded -->
-                <button type='submit' class="btn btn-primary btn-large" ng-disabled='howfaryForm.$invalid' ng-click='howfar(journey)'><i class="icon-search"></i>Calculate</button>
+                <button type='submit' class="btn btn-primary btn-block btn-large" ng-disabled='howfaryForm.$invalid' ng-click='howfar(journey)'><i class="icon-search"></i>Calculate</button>
+                <br/>
                 <br/>
                 <h1 ng-show='journey'>
-                <span ng-model='journey.duration'>{{journey.duration}}</span>
-                <span ng-show='journey.distance'>or</span>
-                <span ng-model='journey.distance'>{{journey.distance}}</span>
+                <span ng-model='journey.distance' class='text-success'>{{journey.distance}}</span>
+                <span ng-show='journey.distance'> in </span>
+                <span ng-model='journey.duration' class='text-info'>{{journey.duration}}</span>
                 </h1>
                 <h2 ng-show='error' ng-model='error'>{{error}}</h2>
             </form>
