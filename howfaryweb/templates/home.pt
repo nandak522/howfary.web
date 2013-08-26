@@ -12,13 +12,15 @@
                 <input name='destination' class='strong' type='text' ng-model='journey.destination' autocomplete='off' required/>&nbsp;?
             </h2>
                 <br/>
-                <button type='submit' class="btn btn-primary btn-large" ng-disabled='howfaryForm.$invalid' ng-click='howfar(journey)'><i class="icon-search"></i>Calculate Distance</button>
+                <!-- TODO: icon-search not working because images cant be loaded -->
+                <button type='submit' class="btn btn-primary btn-large" ng-disabled='howfaryForm.$invalid' ng-click='howfar(journey)'><i class="icon-search"></i>Calculate</button>
                 <br/>
-                <h1>
+                <h1 ng-show='journey'>
                 <span ng-model='journey.duration'>{{journey.duration}}</span>
                 <span ng-show='journey.distance'>or</span>
                 <span ng-model='journey.distance'>{{journey.distance}}</span>
                 </h1>
+                <h2 ng-show='error' ng-model='error'>{{error}}</h2>
             </form>
             <br/>
             <tal:block tal:condition="exists:all_journies">
