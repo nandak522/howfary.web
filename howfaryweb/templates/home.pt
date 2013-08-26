@@ -11,10 +11,14 @@
                 <input name='source' type='text' value='' ng-model='journey.source' autocomplete='off' required/>&nbsp;From
                 <input name='destination' class='strong' type='text' ng-model='journey.destination' autocomplete='off' required/>&nbsp;?
             </h2>
-                <br/><br/>
+                <br/>
                 <button type='submit' class="btn btn-primary btn-large" ng-disabled='howfaryForm.$invalid' ng-click='howfar(journey)'><i class="icon-search"></i>Calculate Distance</button>
+                <br/>
+                <h1>
                 <span ng-model='journey.duration'>{{journey.duration}}</span>
+                <span ng-show='journey.distance'>or</span>
                 <span ng-model='journey.distance'>{{journey.distance}}</span>
+                </h1>
             </form>
             <br/>
             <tal:block tal:condition="exists:all_journies">

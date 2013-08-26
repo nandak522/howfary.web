@@ -1,5 +1,6 @@
+howfaryModule = angular.module('howfaryModule', []);
 
-function formController($scope, $http){
+howfaryModule.controller('formController', function($scope, $http){
     $scope.howfar = function(journey) {
         console.log('clicked scope:'+journey.source);
         $http.post('/howfar/', {'source': $scope.journey.source, 'destination': $scope.journey.destination})
@@ -11,4 +12,4 @@ function formController($scope, $http){
                 console.log('error status:'+status);
             });
     };
-}
+});
