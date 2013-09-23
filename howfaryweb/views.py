@@ -16,7 +16,8 @@ from howfary.core.query import compute_howfar
 @view_config(route_name='home', request_method='GET', renderer='templates/home.pt')
 def home(request):
     return {'source': '', 'destination': '', 'distance':'', 'duration': '',
-            'all_journies': DBSession.query(Journey).all()}
+            'all_journies': DBSession.query(Journey).order_by(Journey.id.desc()).all()}
+
 
 @view_config(route_name='howfar', request_method='POST', renderer='json')
 def howfar(request):

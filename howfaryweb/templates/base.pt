@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:ng="http://angularjs.org" ng-app='howfaryModule'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:ng="http://angularjs.org" ng-app='howfary'>
 <head>
     <title>
         <tal:block metal:define-slot="title"></tal:block>
@@ -48,5 +48,7 @@
     </footer>
   <script type='text/javascript' src="${request.static_url('howfaryweb:static/angularjs/angular.min.js')}"></script>
   <script type='text/javascript' src="${request.static_url('howfaryweb:static/app.js')}"></script>
+  <script type='text/javascript' src="${request.static_url('howfaryweb:static/controllers.js')}"></script>
+  <script type='text/javascript' src="${request.static_url('howfaryweb:static/directives.js')}"></script>
 </body>
 </html>

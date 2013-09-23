@@ -33,12 +33,7 @@
                             <th>Source</th><th>Destination</th><th>Distance</th><th>Duration</th>
                         </tr>
                     </thead>
-                    <tr ng-show='new_journey' ng-bind='new_journey'>
-                        <td>{{new_journey.source}}</td>
-                        <td>{{new_journey.destination}}</td>
-                        <td>{{new_journey.distance}}</td>
-                        <td>{{new_journey.duration}}</td>
-                    </tr>
+                    <tr add-new-journey-row value="new_journey"></tr>
                     <tal-in tal:repeat="journey all_journies">
                         <tr>
                             <td>${journey.source}</td><td>${journey.destination}</td><td>${journey.distance}</td><td>${journey.duration}</td>
