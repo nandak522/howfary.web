@@ -36,3 +36,6 @@ nosetests.xml
 
 # sqlite
 *.sqlite
+
+# Intellij Idea cruft
+.idea
