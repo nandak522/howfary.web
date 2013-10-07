@@ -8,19 +8,22 @@ from .models import (
     )
 
 
-@view_config(route_name='home', request_method='GET', renderer='templates/home.pt')
+@view_config(route_name='home', request_method='GET',
+             renderer='templates/home.pt')
 def home(request):
     return {'source': '', 'destination': '', 'distance': '', 'duration': '',
-            'all_journies': DBSession.query(Journey).order_by(Journey.id.desc()).all()}
+            'all_journies': DBSession.query(Journey).order_by(
+                Journey.id.desc()).all()}
 
 
 @view_config(route_name='howfar', request_method='POST', renderer='json')
 def howfar(request):
     request_data = request.json
-    source = request_data.get('source').strip().lower()
-    destination = request_data.get('destination').strip().lower()
-    results = DBSession.query(Journey).filter(Journey.source == source,
-                                              Journey.destination == destination)
+    source = request_data.get('source').strip()
+    destination = request_data.get('destination').strip()
+    results = DBSession.query(Journey).filter(
+        Journey.source == source.lower(),
+        Journey.destination == destination.lower())
     if results.count():
         result = results.one()
         distance = result.distance
@@ -40,6 +43,6 @@ def howfar(request):
     return {'source': source,
             'destination': destination,
             'result': {'distance': distance,
-                       'duration': duration,
+                       'duration': duration
+                       }
             }
-    }
