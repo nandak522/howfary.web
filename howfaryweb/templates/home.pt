@@ -2,46 +2,68 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       metal:use-macro="base"
-      xmlns:ng='http://angularjs.org'>
-    <tal:block metal:fill-slot="title">How Far Am I</tal:block>
-    <tal:block metal:fill-slot="body">
-        <div ng-controller="formController">
-            <form name='howfaryForm'>
+      xmlns:ng='http://angularjs.org'
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://xml.zope.org/namespaces/tal ">
+<tal:block metal:fill-slot="title">How Far Am I</tal:block>
+<tal:block metal:fill-slot="body">
+    <div ng-controller="formController">
+        <form name='howfaryForm'>
                 <span class='form_header'>How far is
-                    <input name='source' type='text' id='source' ng-model='journey.source' autocomplete='off' required/>&nbsp;from
-                    <input name='destination' type='text' ng-model='journey.destination' autocomplete='off' required/>&nbsp;?
+                    <input name='source' type='text' id='source'
+                           ng-model='journey.source' autocomplete='off'
+                           required/>&nbsp;from
+                    <input name='destination' type='text'
+                           ng-model='journey.destination' autocomplete='off'
+                           required/>&nbsp;?
                 </span>
-                <br/>
-                <br/>
-                <!-- TODO: icon-search not working because images cant be loaded -->
-                <button type='submit' class="btn btn-primary btn-block btn-large" ng-disabled='howfaryForm.$invalid' ng-click='howfar()'><i class="icon-search"></i>Calculate</button>
-                <br/>
-                <br/>
-                <h1 ng-show='journey'>
+            <br/>
+            <br/>
+            <!-- TODO: icon-search not working because images cant be loaded -->
+            <button type='submit' class="btn btn-primary btn-block btn-large"
+                    ng-disabled='howfaryForm.$invalid' ng-click='howfar()'><i
+                    class="icon-search"></i>Calculate
+            </button>
+            <br/>
+            <br/>
+
+            <h1 ng-show='journey'>
                 <span ng-model='journey.distance' class='text-success'>{{journey.distance}}</span>
                 <span ng-show='journey.distance'>, in </span>
                 <span ng-model='journey.duration' class='text-info'>{{journey.duration}}</span>
-                </h1>
-                <h2 ng-show='error' ng-model='error'>{{error}}</h2>
-            </form>
-            <br/>
-            <tal:block tal:condition="exists:all_journies">
+            </h1>
+
+            <h2 ng-show='error' ng-model='error'>{{error}}</h2>
+        </form>
+        <br/>
+        <tal:block tal:condition="exists:all_journies">
             <div id='all_journies'>
                 <table class='table table-striped table-hover'>
                     <thead>
-                        <tr>
-                            <th>Source</th><th>Destination</th><th>Distance</th><th>Duration</th>
-                        </tr>
+                    <tr>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Distance</th>
+                        <th>Duration</th>
+                    </tr>
                     </thead>
-                    <tr add-new-journey-row value="new_journey"></tr>
+                    <tr ng-repeat="newJourney in newJournies">
+                        <td>{{ newJourney.source }}</td>
+                        <td>{{ newJourney.destination }}</td>
+                        <td>{{ newJourney.distance }}</td>
+                        <td>{{ newJourney.duration }}</td>
+                    </tr>
                     <tal-in tal:repeat="journey all_journies">
                         <tr>
-                            <td>${journey.source}</td><td>${journey.destination}</td><td>${journey.distance}</td><td>${journey.duration}</td>
+                            <td>${journey.source}</td>
+                            <td>${journey.destination}</td>
+                            <td>${journey.distance}</td>
+                            <td>${journey.duration}</td>
                         </tr>
                     </tal-in>
                 </table>
             </div>
-            </tal:block>
-        </div>
-    </tal:block>
+        </tal:block>
+    </div>
+</tal:block>
 </html>

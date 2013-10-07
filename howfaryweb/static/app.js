@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('howfary', ['howfary.controllers', 'howfary.directives']);
+angular.module('howfary', ['howfary.controllers']);
