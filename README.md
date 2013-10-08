@@ -19,5 +19,6 @@ Getting Started
 TODO
 ---------------
 
-- Do an ajax update of the bottom listing location table once distance is fetched
+- ~~ Do an ajax update of the bottom listing location table once distance is fetched ~~
 - Improve the display of the duration/distance result
+- Autocomplete for source & destination names
