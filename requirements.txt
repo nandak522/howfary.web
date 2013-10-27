@@ -1,21 +1,24 @@
-Chameleon==2.11
-Mako==0.8.1
+Chameleon==2.13-1
+Mako==0.9.0
 MarkupSafe==0.18
 PasteDeploy==1.5.0
 Pygments==1.6
-SQLAlchemy==0.8.2
+SQLAlchemy==0.8.3
 WebOb==1.2.3
 distribute==0.6.31
+-e git+git@github.com:none-da/howfary.core.git@238a7ab29eb6622c42556177cdb9fdf538a39841#egg=howfary.core-dev
+-e git+git@github.com:none-da/howfary.web.git@7c473acb8b5519e6d8bf08976e92e9dbd1e9b10f#egg=howfary.web-dev
 pyramid==1.4.3
-pyramid-debugtoolbar==1.0.6
+pyramid-debugtoolbar==1.0.9
+pyramid-mako==0.3.1
 pyramid-tm==0.7
 repoze.lru==0.6
-requests==1.2.3
+requests==2.0.1
 transaction==1.4.1
 translationstring==1.1
 venusian==1.0a8
-waitress==0.8.5
+waitress==0.8.7
 wsgiref==0.1.2
 zope.deprecation==4.0.2
 zope.interface==4.0.5
-zope.sqlalchemy==0.7.2
+zope.sqlalchemy==0.7.3
