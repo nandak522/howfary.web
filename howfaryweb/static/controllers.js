@@ -11,7 +11,8 @@ angular.module('howfary.controllers', []).
                     $scope.new_journey = {'source': $scope.journey.source,
                                           'destination': $scope.journey.destination,
                                           'distance': data.result.distance,
-                                          'duration': data.result.duration};
+                                          'duration': data.result.duration,
+                                          'link': data.result.link};
                     $scope.newJournies.unshift($scope.new_journey);
                 }).error(function(data, status) {
                     $scope.error = 'Unable to Calculate Distance!';

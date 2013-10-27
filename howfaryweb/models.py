@@ -14,6 +14,7 @@ from sqlalchemy.orm import (
     )
 
 from zope.sqlalchemy import ZopeTransactionExtension
+from howfary.core.query import DIRECTIONS_LINK_URL
 
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base(metadata=MetaData())
@@ -30,3 +31,8 @@ class Journey(Base):
     @hybrid_property
     def howfar(self):
         return dict(distance=self.distance, duration=self.duration)
+
+    @hybrid_property
+    def link(self):
+        return DIRECTIONS_LINK_URL.format(source=self.source,
+                                          destination=self.destination)

@@ -1,6 +1,6 @@
 from pyramid.view import view_config
 import transaction
-from howfary.core.query import compute_howfar
+from howfary.core.query import compute_howfar, DIRECTIONS_LINK_URL
 
 from .models import (
     DBSession,
@@ -13,7 +13,9 @@ from .models import (
 def home(request):
     return {'source': '', 'destination': '', 'distance': '', 'duration': '',
             'all_journies': DBSession.query(Journey).order_by(
-                Journey.id.desc()).all()}
+                Journey.id.desc()).all(),
+            'link': DIRECTIONS_LINK_URL.format(source='', destination='')
+            }
 
 
 @view_config(route_name='howfar', request_method='POST', renderer='json')
@@ -43,6 +45,8 @@ def howfar(request):
     return {'source': source,
             'destination': destination,
             'result': {'distance': distance,
-                       'duration': duration
+                       'duration': duration,
+                       'link': DIRECTIONS_LINK_URL.format(source=source,
+                                                          destination=destination)
                        }
             }

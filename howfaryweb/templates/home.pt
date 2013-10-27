@@ -45,6 +45,7 @@
                         <th>Destination</th>
                         <th>Distance</th>
                         <th>Duration</th>
+                        <th>Google Maps Link</th>
                     </tr>
                     </thead>
                     <tr ng-repeat="newJourney in newJournies">
@@ -52,6 +53,7 @@
                         <td>{{ newJourney.destination }}</td>
                         <td>{{ newJourney.distance }}</td>
                         <td>{{ newJourney.duration }}</td>
+                        <td>{{ newJourney.link }}</td>
                     </tr>
                     <tal-in tal:repeat="journey all_journies">
                         <tr>
@@ -59,6 +61,7 @@
                             <td>${journey.destination}</td>
                             <td>${journey.distance}</td>
                             <td>${journey.duration}</td>
+                            <td>${journey.link}</td>
                         </tr>
                     </tal-in>
                 </table>
