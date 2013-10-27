@@ -33,7 +33,6 @@ def howfar(request):
     else:
         howfar_info = compute_howfar(source=source,
                                      destination=destination)
-        assert howfar_info['status'] == 'OK'
         distance = howfar_info['distance']['text']
         duration = howfar_info['duration']['text']
         with transaction.manager:

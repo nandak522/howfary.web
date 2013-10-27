@@ -53,7 +53,7 @@
                         <td>{{ newJourney.destination }}</td>
                         <td>{{ newJourney.distance }}</td>
                         <td>{{ newJourney.duration }}</td>
-                        <td>{{ newJourney.link }}</td>
+                        <td><a href="{{ newJourney.link }}" target="_blank">Link</a></td>
                     </tr>
                     <tal-in tal:repeat="journey all_journies">
                         <tr>
@@ -61,7 +61,7 @@
                             <td>${journey.destination}</td>
                             <td>${journey.distance}</td>
                             <td>${journey.duration}</td>
-                            <td>${journey.link}</td>
+                            <td><a href="${journey.link}" target="_blank">Link</a></td>
                         </tr>
                     </tal-in>
                 </table>

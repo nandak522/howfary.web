@@ -1,7 +1,3 @@
 'use strict';
 
-angular.module('howfary', ['ngAnimate', 'howfary.controllers']);
-
-function helloWorld() {
-    return "Hello world!";
-}
+angular.module('howfary', ['howfary.controllers']);

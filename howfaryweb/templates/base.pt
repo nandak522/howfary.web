@@ -43,12 +43,12 @@
                     Howfary &copy; 2013<br/><br/>
                     Built with <a href='http://www.pylonsproject.org/'>Pyramid</a> &amp; <a href='http://twitter.github.io/bootstrap/'>Bootstrap</a> &amp; <a href='http://angularjs.org/'>AngularJS</a>
                 </div>
+              </div>
             </div>
         </div>
     </footer>
-  <script type='text/javascript' src="${request.static_url('howfaryweb:static/angularjs/angular.min.js')}"></script>
+  <script type='text/javascript' src="${request.static_url('howfaryweb:static/angularjs/angular.js')}"></script>
   <script type='text/javascript' src="${request.static_url('howfaryweb:static/app.js')}"></script>
   <script type='text/javascript' src="${request.static_url('howfaryweb:static/controllers.js')}"></script>
-  <script type='text/javascript' src="${request.static_url('howfaryweb:static/directives.js')}"></script>
 </body>
 </html>
