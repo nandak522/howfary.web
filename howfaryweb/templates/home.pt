@@ -47,7 +47,7 @@
                         <th>Destination</th>
                         <th>Distance</th>
                         <th>Duration</th>
-                        <th>Google Maps Link</th>
+                        <th>Route Map</th>
                     </tr>
                     </thead>
                     <tr ng-repeat="newJourney in newJournies">
@@ -63,7 +63,7 @@
                             <td>${journey.destination}</td>
                             <td>${journey.distance}</td>
                             <td>${journey.duration}</td>
-                            <td><a href="${journey.link}" target="_blank">Link</a></td>
+                            <td><a href="${journey.link}" target="_blank">Directions</a></td>
                         </tr>
                     </tal-in>
                 </table>
