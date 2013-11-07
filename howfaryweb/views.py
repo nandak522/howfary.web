@@ -21,11 +21,11 @@ def home(request):
 @view_config(route_name='howfar', request_method='POST', renderer='json')
 def howfar(request):
     request_data = request.json
-    source = request_data.get('source').strip()
-    destination = request_data.get('destination').strip()
+    source = str(request_data.get('source')).strip()
+    destination = str(request_data.get('destination')).strip()
     results = DBSession.query(Journey).filter(
-        Journey.source == source.lower(),
-        Journey.destination == destination.lower())
+        Journey.source.ilike(source),
+        Journey.destination.ilike(destination))
     if results.count():
         result = results.one()
         distance = result.distance

@@ -20,8 +20,8 @@
             <br/>
             <br/>
             <!-- TODO: icon-search not working because images cant be loaded -->
-            <button ng-model='submit_button' type='submit' class="btn btn-primary btn-block btn-large"
-                    ng-disabled='howfaryForm.$invalid' ng-click='howfar()'><i
+            <button id='submit_button' ng-init="requestSent = false" ng-model='submit_button' type='submit' class="btn btn-primary btn-block btn-large"
+                    ng-disabled='howfaryForm.$invalid || requestSent' ng-click='howfar()'><i
                     class="icon-search"></i>{{submit_button_label}}
             </button>
             <br/>
