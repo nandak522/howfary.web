@@ -13,6 +13,7 @@
   <!--[if lte IE 6]>
   <link rel="stylesheet" href="${request.static_url('howfaryweb:static/ie6.css')}" type="text/css" media="screen" charset="utf-8" />
   <![endif]-->
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 </head>
 <body>
     <header>
