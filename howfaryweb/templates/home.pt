@@ -10,11 +10,9 @@
     <div ng-controller="formController">
         <form name='howfaryForm'>
                 <span class='form_header'>How far is
-                    <input type='text' name='source' google-maps-address-field autocomplete='off' required/>
-                    <input type='text' name='destination' google-maps-address-field autocomplete='off' required/>
-<!--                     <google-maps-address-field name='source'/>&nbsp;from
-                    <google-maps-address-field name='destination'/>&nbsp;
- -->            </span>
+                    <input type='text' ng-model='journey.source' id='source' name='source' google-maps-address-field autocomplete='off' required/>
+                    <input type='text' ng-model='journey.destination' id='destination' name='destination' google-maps-address-field autocomplete='off' required/>
+            </span>
             <br/>
             <br/>
             <!-- TODO: icon-search not working because images cant be loaded -->

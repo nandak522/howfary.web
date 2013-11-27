@@ -52,5 +52,6 @@
   <script type='text/javascript' src="${request.static_url('howfaryweb:static/angular-1.2.2/angular.min.js')}"></script>
   <script type='text/javascript' src="${request.static_url('howfaryweb:static/app.js')}"></script>
   <script type='text/javascript' src="${request.static_url('howfaryweb:static/controllers.js')}"></script>
+  <script type='text/javascript' src="${request.static_url('howfaryweb:static/directives.js')}"></script>
 </body>
 </html>
