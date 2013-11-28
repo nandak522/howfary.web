@@ -13,7 +13,7 @@
   <!--[if lte IE 6]>
   <link rel="stylesheet" href="${request.static_url('howfaryweb:static/ie6.css')}" type="text/css" media="screen" charset="utf-8" />
   <![endif]-->
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+  <script type='text/javascript' src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 </head>
 <body>
     <header>
@@ -22,7 +22,7 @@
         <div class='span12'>
           <div class='navbar navbar-static-top'>
             <div class='navbar-inner'>
-              <a class='brand'>HowFary</a>
+              <a href='/' class='brand'>HowFary</a>
             </div>
           </div>
         </div>

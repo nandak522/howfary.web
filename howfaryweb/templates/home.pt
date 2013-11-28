@@ -10,15 +10,16 @@
     <div ng-controller="formController">
         <form name='howfaryForm'>
                 <span class='form_header'>How far is
-                    <input type='text' ng-model='journey.source' id='source' name='source' google-maps-address-field autocomplete='off' required/>
-                    <input type='text' ng-model='journey.destination' id='destination' name='destination' google-maps-address-field autocomplete='off' required/>
+                    <input type='text' ng-model='journey.source' id='source' name='source' autocomplete='off' required onFocus='javascript:autocompleteFy(this);'/>
+                    <input type='text' ng-model='journey.destination' id='destination' name='destination' autocomplete='off' required onFocus='javascript:autocompleteFy(this);'/>
+                <!--     <input type='text' ng-model='journey.source' id='source' name='source' google-maps-address-field autocomplete='off' required/>
+                    <input type='text' ng-model='journey.destination' id='destination' name='destination' google-maps-address-field autocomplete='off' required/> -->
             </span>
             <br/>
             <br/>
             <!-- TODO: icon-search not working because images cant be loaded -->
             <button id='submit_button' ng-init="requestSent = false" ng-model='submit_button' type='submit' class="btn btn-primary btn-block btn-large"
-                    ng-disabled='howfaryForm.$invalid || requestSent' ng-click='howfar()'><i
-                    class="icon-search"></i>{{submit_button_label}}
+                    ng-disabled='howfaryForm.$invalid || requestSent' ng-click='howfar()'>{{submit_button_label}}
             </button>
             <br/>
             <br/>

@@ -10,7 +10,7 @@ angular.module('howfary.controllers', []).
         $scope.howfar = function () {
             $scope.submit_button_label = 'Calculating...';
             $scope.requestSent = true;
-            console.log("$scope.journey:" + $scope.journey);
+            // console.log("$scope.journey:" + $scope.journey);
             $http.post('/howfar/', {'source': $scope.journey.source, 'destination': $scope.journey.destination})
                 .success(function(data, status) {
                     $scope.journey.duration = data.result.duration;
