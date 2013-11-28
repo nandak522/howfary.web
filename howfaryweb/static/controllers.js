@@ -23,6 +23,7 @@ angular.module('howfary.controllers', []).
                     $scope.newJournies.unshift($scope.new_journey);
                     $scope.submit_button_label = 'Calculate';
                     $scope.requestSent = false;
+                    $scope.error = '';
                 }).error(function(data, status) {
                     $scope.error = 'Unable to Calculate Distance!';
                     $scope.requestSent = false;
