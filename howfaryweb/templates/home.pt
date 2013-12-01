@@ -15,13 +15,11 @@
                 <div class='form_header'>
                      <input type='text' ng-model='journey.source' id='source' name='source' google-maps-address-field autocomplete='off' required place-holder='Source'/><h3>from</h3>
                     <input type='text' ng-model='journey.destination' id='destination' name='destination' google-maps-address-field autocomplete='off' required place-holder='Destination'/>
-            </div>
-            <br/>
-            <!-- TODO: icon-search not working because images cant be loaded -->
-            <button id='submit_button' ng-init="requestSent = false" ng-model='submit_button' type='submit' class="btn btn-primary btn-block btn-large"
+                                <button id='submit_button' ng-init="requestSent = false" ng-model='submit_button' type='submit' class="btn btn-primary btn-block btn-large"
                     ng-disabled='howfaryForm.$invalid || requestSent' ng-click='howfar()'>{{submit_button_label}}
             </button>
-
+            </div>
+            <br/>
             <h1 ng-show='journey'>
                 <span ng-model='journey.distance' class='text-success'>{{journey.distance}}</span>
                 <span ng-show='journey.distance'> in </span>
@@ -29,10 +27,8 @@
                 <span ng-show='journey.distance'>: </span>
                 <span ng-show='journey.distance' ng-model='new_journey.link' class='text-warning link'><a id='route_map' href="{{new_journey.link}}" target="_blank">Route Map</a></span>
             </h1>
-
             <h2 ng-show='error' ng-model='error'>{{error}}</h2>
         </form>
-        <br/>
         <tal:block tal:condition="exists:all_journies">
             <div id='all_journies'>
                 <table class='table table-striped table-hover'>
