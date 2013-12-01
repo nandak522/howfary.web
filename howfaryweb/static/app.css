@@ -1,7 +1,8 @@
 * {font-family: Arial;}
 #main_header{text-align: center;font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;font-weight: 100;font-style: italic;color: #333;}
+#journey_result{text-align: center;font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;font-weight: 100;}
 .special{color:#105EB6;font-weight:normal;}
-.form_header{text-align: center;}
+.form_header{text-align: center;background: #EEE;padding:20px 0 10px 0;margin-bottom:10px;}
 .footer{text-align: center; background: #EFEFEF; border-top: 1px solid #E1E1E1; padding: 10px;}
 input[type=text]{font-size:1.5em;height:1.2em;width:80%;color:#666;}
 .form_header{font-family: Helvetica, 'PT Sans Caption', 'Gentium Book Basic', 'Noto Serif', serif;}

@@ -15,12 +15,12 @@
                 <div class='form_header'>
                      <input type='text' ng-model='journey.source' id='source' name='source' google-maps-address-field autocomplete='off' required place-holder='Source'/><h3>from</h3>
                     <input type='text' ng-model='journey.destination' id='destination' name='destination' google-maps-address-field autocomplete='off' required place-holder='Destination'/>
-                                <button id='submit_button' ng-init="requestSent = false" ng-model='submit_button' type='submit' class="btn btn-primary btn-block btn-large"
+
+            </div>                                <button id='submit_button' ng-init="requestSent = false" ng-model='submit_button' type='submit' class="btn btn-primary btn-block btn-large"
                     ng-disabled='howfaryForm.$invalid || requestSent' ng-click='howfar()'>{{submit_button_label}}
             </button>
-            </div>
             <br/>
-            <h1 ng-show='journey'>
+            <h1 id='journey_result' ng-show='journey'>
                 <span ng-model='journey.distance' class='text-success'>{{journey.distance}}</span>
                 <span ng-show='journey.distance'> in </span>
                 <span ng-model='journey.duration' class='text-info'>{{journey.duration}}</span>
