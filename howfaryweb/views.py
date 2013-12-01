@@ -30,6 +30,7 @@ def howfar(request):
         result = results.one()
         distance = result.distance
         duration = result.duration
+        link = result.link
     else:
         howfar_info = compute_howfar(source=source,
                                      destination=destination)
@@ -40,12 +41,12 @@ def howfar(request):
                               destination=destination,
                               distance=distance,
                               duration=duration)
+            link = journey.link
             DBSession.add(journey)
     return {'source': source,
             'destination': destination,
             'result': {'distance': distance,
                        'duration': duration,
-                       'link': DIRECTIONS_LINK_URL.format(source=source,
-                                                          destination=destination)
+                       'link': link
                        }
             }

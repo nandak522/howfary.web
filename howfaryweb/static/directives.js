@@ -5,9 +5,7 @@ angular.module('howfary.directives', []).directive('googleMapsAddressField', fun
         link: function ($scope, element, attrs){
             var autocomplete = new google.maps.places.Autocomplete(element[0]);
             google.maps.event.addListener(autocomplete, 'place_changed', function () {
-                var place = autocomplete.getPlace();
-                $scope.journey[element[0].name] = [place.name,
-                                                   place.formatted_address].join(', ');
+                $scope.journey[element[0].name] = element[0].value;
                 $scope.$apply();
             });
         }

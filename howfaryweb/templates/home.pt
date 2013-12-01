@@ -7,20 +7,20 @@
       xsi:schemaLocation="http://xml.zope.org/namespaces/tal ">
 <tal:block metal:fill-slot="title">How Far Am I</tal:block>
 <tal:block metal:fill-slot="body">
+                <br/>
+    <h1 id='main_header'>Find out how far is <span class='special'>one place</span> from <span class='special'>the other</span></h1>
     <div ng-controller="formController">
         <form name='howfaryForm'>
-                <span class='form_header'>How far is
-                     <input type='text' ng-model='journey.source' id='source' name='source' google-maps-address-field autocomplete='off' required/>
-                    <input type='text' ng-model='journey.destination' id='destination' name='destination' google-maps-address-field autocomplete='off' required/>
-            </span>
-            <br/>
+                <br/>
+                <div class='form_header'>
+                     <input type='text' ng-model='journey.source' id='source' name='source' google-maps-address-field autocomplete='off' required place-holder='Source'/><h3>from</h3>
+                    <input type='text' ng-model='journey.destination' id='destination' name='destination' google-maps-address-field autocomplete='off' required place-holder='Destination'/>
+            </div>
             <br/>
             <!-- TODO: icon-search not working because images cant be loaded -->
             <button id='submit_button' ng-init="requestSent = false" ng-model='submit_button' type='submit' class="btn btn-primary btn-block btn-large"
                     ng-disabled='howfaryForm.$invalid || requestSent' ng-click='howfar()'>{{submit_button_label}}
             </button>
-            <br/>
-            <br/>
 
             <h1 ng-show='journey'>
                 <span ng-model='journey.distance' class='text-success'>{{journey.distance}}</span>

@@ -1,3 +1,4 @@
+import urllib
 from sqlalchemy import (
     Column,
     Integer,
@@ -34,5 +35,7 @@ class Journey(Base):
 
     @hybrid_property
     def link(self):
-        return DIRECTIONS_LINK_URL.format(source=self.source,
-                                          destination=self.destination)
+        return DIRECTIONS_LINK_URL + \
+            '?' + \
+            urllib.urlencode({'saddr': self.source,
+                              'daddr': self.destination})
