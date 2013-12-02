@@ -38,7 +38,7 @@
                         <th>Destination</th>
                         <th>Distance</th>
                         <th>Duration</th>
-                        <th>Route Map</th>
+                        <th>Directions</th>
                     </tr>
                     </thead>
                     <tr ng-repeat="newJourney in newJournies">
@@ -46,7 +46,7 @@
                         <td>{{ newJourney.destination }}</td>
                         <td>{{ newJourney.distance }}</td>
                         <td>{{ newJourney.duration }}</td>
-                        <td><a href="{{ newJourney.link }}" target="_blank">Link</a></td>
+                        <td><a href="{{ newJourney.link }}" target="_blank">Route Map</a></td>
                     </tr>
                     <tal-in tal:repeat="journey all_journies">
                         <tr>
@@ -54,7 +54,7 @@
                             <td>${journey.destination}</td>
                             <td>${journey.distance}</td>
                             <td>${journey.duration}</td>
-                            <td><a href="${journey.link}" target="_blank">Directions</a></td>
+                            <td><a href="${journey.link}" target="_blank">Route Map</a></td>
                         </tr>
                     </tal-in>
                 </table>
